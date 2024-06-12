@@ -1,10 +1,16 @@
+#Permet d'exposer les services , il permet de faire les gestions de CORS , gestion de s"curité via les api
 nelmio_cors:
     defaults:
         origin_regex: true
+        #autorise tous les urls
         allow_origin: ['%env(CORS_ALLOW_ORIGIN)%']
+        #autorise les methodes dans un api
         allow_methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE']
+        #Output des contenus 
         allow_headers: ['Content-Type', 'Authorization']
         expose_headers: ['Link']
         max_age: 3600
+
+    #Chemin de l'api si il y a pas de '/' retourne null ou la page par defaut
     paths:
         '^/': null
